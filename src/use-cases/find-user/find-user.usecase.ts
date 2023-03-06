@@ -6,6 +6,7 @@ import { IUserRepository } from 'src/core/repositories/user.repository';
 @Injectable()
 export class FindUserUseCase implements UseCase<User> {
   constructor(private readonly repository: IUserRepository) {}
+
   async execute(filters: Partial<User>): Promise<User[]> {
     return this.repository.getMany(filters);
   }
