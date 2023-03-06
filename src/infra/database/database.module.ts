@@ -1,4 +1,4 @@
-import { UserRepository } from 'src/infra/database/repositories/user.repository';
+import { UserRepositoryTypeorm } from 'src/infra/database/repositories/user.repository';
 
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -26,7 +26,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     }),
   ],
   controllers: [],
-  providers: [UserRepository],
-  exports: [UserRepository],
+  providers: [UserRepositoryTypeorm],
+  exports: [UserRepositoryTypeorm],
 })
 export class DatabaseModule {}

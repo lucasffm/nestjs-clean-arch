@@ -7,7 +7,9 @@ import {
   QueryRunner,
 } from 'typeorm';
 
-export class BaseRepository<T extends ObjectLiteral> implements Repository<T> {
+export class BaseRepositoryTypeorm<T extends ObjectLiteral>
+  implements Repository<T>
+{
   private entitySchema: any;
   private manager: EntityManager;
   private queryRunner: QueryRunner;
