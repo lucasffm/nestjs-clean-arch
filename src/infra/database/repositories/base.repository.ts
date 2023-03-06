@@ -39,10 +39,10 @@ export class BaseRepository<T extends ObjectLiteral> implements Repository<T> {
     throw new Error('Method not implemented.');
   }
   getOne(filter: T): Promise<T> {
-    return this.manager.findOne(this.entitySchema, filter);
+    return this.manager.findOne<T>(this.entitySchema, filter);
   }
   getMany(filter: T): Promise<T[]> {
-    throw new Error('Method not implemented.');
+    return this.manager.find<T>(this.entitySchema, { where: filter });
   }
 
   delete(id: number): Promise<void> {
